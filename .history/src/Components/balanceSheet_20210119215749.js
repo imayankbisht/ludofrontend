@@ -1,0 +1,13 @@
+import UserManagement from '../Components/UserManagement';
+import {Switch ,Route} from 'react-router-dom';
+import UserForm from '../Components/UserForm';
+import EditForm from '../Components/EditForm';
+import React from 'react';
+
+export default function Main(){
+    return(
+        <div>
+            
+        </div>
+    )
+}
