@@ -32,6 +32,10 @@ import {Link, Redirect} from 'react-router-dom';
 import "typeface-nunito";
 
 import UserManagement from './Pages/UserManagement';
+import HistoryDeposit from './Pages/HistoryDeposit';
+import RakeHistory from './Pages/RakeHistory';
+import RefundHistory from './Pages/RefundHistory';
+import WithDrawlHistory from './Pages/WithDrawlHistory';
 import { Switch, Route} from "react-router-dom";
 import BalanceSheet from './Pages/balanceSheet';
 import Sidebar from './Sidebar';
@@ -134,11 +138,13 @@ const useStyles = makeStyles((theme) => ({
 const switchRoutes = (
   <Switch>
         <Route path="/admin/Dashboard" render={props => <Home {...props} />} />
-
-    <Route path="/admin/BalanceSheet" render={props => <BalanceSheet {...props} />} />
-
-<Route path="/admin/roomManagement" render={props => <UserManagement {...props} />} />
-<Route path="/admin/create" render={props => (
+        <Route path="/admin/BalanceSheet" render={props => <BalanceSheet {...props} />} />
+        <Route path="/admin/roomManagement" render={props => <UserManagement {...props} />} />
+        <Route path="/admin/historyDeposit" render ={props =><HistoryDeposit title="Deposit History" {...props} />}/>
+        <Route path="/admin/historyRake" render ={props =><RakeHistory title="Rake History" {...props} />}/>
+        <Route path="/admin/historyWithdraw" render ={props =><WithDrawlHistory title="WithDrawl History" {...props} />}/>
+        <Route path="/admin/historyRefund" render ={props =><RefundHistory title="Refund History" {...props} />}/>
+        <Route path="/admin/create" render={props => (
   <UserForm heading="Create Room" {...props} />
 )} />
 <Route exact path="/api/edit/:id" render={props => {

@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import NotFound from './Components/NotFound';
 import './App.css';
 import {
   BrowserRouter as Router,
@@ -9,10 +10,15 @@ import {
 // import SignInOutContainer from './containers';
 import Dashboard from './Components/Dashboard';
 import Login from './Components/login';
+import { TramRounded } from '@material-ui/icons';
 // import RoomManagement from './Container/RoomManagement';
 
 
 function App(props) {
+  const [isLogin , setIslogin] = useState(false);
+  function handleLogin(){
+    setIslogin(true);
+  }
   return (
     <div className="App">
       <Router >
@@ -24,8 +30,12 @@ function App(props) {
 
           <Redirect from="/" to="/login" />
         </Switch> */}
-<Dashboard/>
-
+        <Switch>
+           <Route path="/" render={()=>!isLogin?<Login isLoging={handleLogin} />  
+           :
+           <Dashboard/>} />
+           <Route path='*' component={<NotFound/>}/>
+        </Switch>
       </Router>
 
 

@@ -16,7 +16,8 @@ const useStyles = makeStyles({
   },
 });
 
-export default function Deposits() {
+export default function Deposits(props) {
+  const {totalDeposit} = props;
   const classes = useStyles();
   return (
     <React.Fragment>
@@ -30,7 +31,7 @@ export default function Deposits() {
             </Grid>
         </Grid>
       <Typography component="p" variant="h4">
-        $4,123.00
+        ${totalDeposit}
       </Typography>
       <Typography color="textSecondary" className={classes.depositContext}>
       on 17 jan, 2020

@@ -16,7 +16,8 @@ const useStyles = makeStyles({
   },
 });
 
-export default function Cashout() {
+export default function Cashout(props) {
+  const {totalWithDrawl} = props;
   const classes = useStyles();
   return (
     <React.Fragment>
@@ -32,7 +33,7 @@ export default function Cashout() {
      
      
       <Typography component="p" variant="h4">
-        $2,034.00
+        ${totalWithDrawl}
       </Typography>
       <Typography color="textSecondary" className={classes.depositContext}>
       on 17 jan, 2020

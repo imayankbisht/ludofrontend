@@ -50,13 +50,15 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Login() {
+export default function Login(props) {
   const classes = useStyles();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const sendLoginData = () => {
-    // e.preventDefault();
-    const headers = {
+  const {isLoging} = props;
+  const sendLoginData = (e) => {
+     e.preventDefault();
+     isLoging();
+   /* const headers = {
         "content-type": "application/json"
        
     };
@@ -76,7 +78,7 @@ export default function Login() {
         });
 
     setEmail("");
-    setPassword("");
+    setPassword("");*/
 };
   return (
     <ThemeProvider theme={theme}>

@@ -19,6 +19,10 @@ import Dashboard from './Dashboard';
 import BalanceSheet from './Pages/balanceSheet';
 import UserManagement from './Pages/UserManagement'
 import Home from './Pages/Home';
+import HistoryDeposit from './Pages/HistoryDeposit';
+import RakeHistory from './Pages/RakeHistory';
+import RefundHistory from './Pages/RefundHistory';
+import WithDrawlHistory from './Pages/WithDrawlHistory';
 const theme = createMuiTheme({
 
   typography: {
@@ -111,8 +115,7 @@ export const SidebarItems = [
     component: UserManagement,
     layout: "/admin"
   },
-  {
-    
+  { 
     name: "Reports",
     icon:<BarChartIcon/>
   },
@@ -120,20 +123,32 @@ export const SidebarItems = [
     name: "Player History"
   },
   {
+    route:"/historyDeposit",
     name: "Deposit",
-    icon:<AssignmentIcon/>
+    icon:<AssignmentIcon/>,
+    component: HistoryDeposit,
+    layout:"/admin"
   },
   {
+    route:"/historyRake",
     name: "Rake",
-    icon:<AssignmentIcon/>
+    icon:<AssignmentIcon/>,
+    component:RakeHistory,
+    layout:"/admin"
   },
   {
+    route:"/historyRefund",
     name: "Refund",
-    icon:<AssignmentIcon/>
+    icon:<AssignmentIcon/>,
+    component:RefundHistory,
+    layout:"/admin"
   },
   {
+    route:"/historyWithdraw",
     name: "withdrawl",
-    icon:<AssignmentIcon/>
+    icon:<AssignmentIcon/>,
+    component:WithDrawlHistory,
+    layout:"/admin"
   },
 
 ];

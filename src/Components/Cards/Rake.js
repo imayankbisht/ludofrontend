@@ -16,7 +16,8 @@ const useStyles = makeStyles({
   },
 });
 
-export default function Rake() {
+export default function Rake(props) {
+  const {totalRake}=props;
   const classes = useStyles();
   return (
     <React.Fragment>
@@ -30,7 +31,7 @@ export default function Rake() {
             </Grid>
         </Grid>
       <Typography component="p" variant="h4">
-        $625.00
+        ${totalRake}
       </Typography>
       <Typography color="textSecondary" className={classes.depositContext}>
       on 17 jan, 2020

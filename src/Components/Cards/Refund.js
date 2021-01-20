@@ -16,7 +16,8 @@ const useStyles = makeStyles({
   },
 });
 
-export default function Refund() {
+export default function Refund(props) {
+  const {totalRefund} = props;
   const classes = useStyles();
   return (
     <React.Fragment>
@@ -31,7 +32,7 @@ export default function Refund() {
             </Grid>
         </Grid>
       <Typography component="p" variant="h4">
-        $964.00
+        ${totalRefund}
       </Typography>
       <Typography color="textSecondary" className={classes.depositContext}>
         on 17 jan, 2020

@@ -49,7 +49,7 @@ export default function UserTable(){
     <Table  className={classes.table} size="small" aria-label="a dense table">
       <TableHead>
         <TableRow >
-          <TableCell   >S.No</TableCell>
+          <TableCell>S.No</TableCell>
           <TableCell>Created At</TableCell>
           <TableCell>Room Id</TableCell>
           <TableCell>Bet Amount</TableCell>
