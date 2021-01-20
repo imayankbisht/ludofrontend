@@ -53,7 +53,9 @@ export default function HistoryDeposit(props){
     const {title} = props;
     return(
         <div>
-            
+            <Typography component="h6" variant="h5"  className={classes.typography} gutterBottom>
+          BalanceSheet
+    </Typography>
             {loading?<div>Loding...</div>:
             <MaterialTable
              title={title}

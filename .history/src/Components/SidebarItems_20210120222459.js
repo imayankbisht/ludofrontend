@@ -96,21 +96,21 @@ export const SidebarItems = [
   // </ThemeProvider>
   {
     route:'/Dashboard',
-    name: "Dashboard",
+    name: "DASHBOARD",
     icon:<DashboardIcon/>,
     component: Home,
     layout: "/admin"
   },
   {
     route:'/BalanceSheet',
-    name: "Balance Sheet",
+    name: "BALANCESHEET",
     icon:<ShoppingCartIcon/>,
     component: BalanceSheet,
     layout: "/admin"
   },
   {
     route:'/roomManagement',
-    name: "Room Management",
+    name: "ROOMMANAGEMENT",
     icon:<PeopleIcon/>,
     component: UserManagement,
     layout: "/admin"
@@ -145,7 +145,7 @@ export const SidebarItems = [
   },
   {
     route:"/historyWithdraw",
-    name: "Withdrawl",
+    name: "withdrawl",
     icon:<AssignmentIcon/>,
     component:WithDrawlHistory,
     layout:"/admin"

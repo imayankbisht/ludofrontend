@@ -120,7 +120,7 @@ export const SidebarItems = [
     icon:<BarChartIcon/>
   },
   {
-    name: "Player History"
+    name: "Player Histoy"
   },
   {
     route:"/historyDeposit",

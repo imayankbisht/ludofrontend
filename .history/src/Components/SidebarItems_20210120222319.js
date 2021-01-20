@@ -103,14 +103,14 @@ export const SidebarItems = [
   },
   {
     route:'/BalanceSheet',
-    name: "Balance Sheet",
+    name: "BalanceSheet",
     icon:<ShoppingCartIcon/>,
     component: BalanceSheet,
     layout: "/admin"
   },
   {
     route:'/roomManagement',
-    name: "Room Management",
+    name: "RoomManagement",
     icon:<PeopleIcon/>,
     component: UserManagement,
     layout: "/admin"
@@ -145,7 +145,7 @@ export const SidebarItems = [
   },
   {
     route:"/historyWithdraw",
-    name: "Withdrawl",
+    name: "withdrawl",
     icon:<AssignmentIcon/>,
     component:WithDrawlHistory,
     layout:"/admin"

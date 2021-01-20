@@ -164,8 +164,17 @@ const switchRoutes = (
 function Dashboard(props) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
-  
- 
+  const [openProfile, setOpenProfile] = React.useState(null);
+  const handleClickProfile = event => {
+    if (openProfile && openProfile.contains(event.target)) {
+      setOpenProfile(null);
+    } else {
+      setOpenProfile(event.currentTarget);
+    }
+  };
+  const handleCloseProfile = () => {
+    setOpenProfile(null);
+  };
   const handleDrawerOpen = () => {
     setOpen(true);
   };

@@ -96,56 +96,56 @@ export const SidebarItems = [
   // </ThemeProvider>
   {
     route:'/Dashboard',
-    name: "Dashboard",
+    name: "DASHBOARD",
     icon:<DashboardIcon/>,
     component: Home,
     layout: "/admin"
   },
   {
     route:'/BalanceSheet',
-    name: "Balance Sheet",
+    name: "BALANCESHEET",
     icon:<ShoppingCartIcon/>,
     component: BalanceSheet,
     layout: "/admin"
   },
   {
     route:'/roomManagement',
-    name: "Room Management",
+    name: "ROOMMANAGEMENT",
     icon:<PeopleIcon/>,
     component: UserManagement,
     layout: "/admin"
   },
   { 
-    name: "Reports",
+    name: "REPORTS",
     icon:<BarChartIcon/>
   },
   {
-    name: "Player History"
+    name: "PLAYER HISTORY"
   },
   {
     route:"/historyDeposit",
-    name: "Deposit",
+    name: "DEPOSIT",
     icon:<AssignmentIcon/>,
     component: HistoryDeposit,
     layout:"/admin"
   },
   {
     route:"/historyRake",
-    name: "Rake",
+    name: "RAKE",
     icon:<AssignmentIcon/>,
     component:RakeHistory,
     layout:"/admin"
   },
   {
     route:"/historyRefund",
-    name: "Refund",
+    name: "REFUND",
     icon:<AssignmentIcon/>,
     component:RefundHistory,
     layout:"/admin"
   },
   {
     route:"/historyWithdraw",
-    name: "Withdrawl",
+    name: "WITHDARAw",
     icon:<AssignmentIcon/>,
     component:WithDrawlHistory,
     layout:"/admin"

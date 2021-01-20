@@ -2,7 +2,29 @@ import React,{useState ,useEffect} from 'react';
 import MaterialTable from 'material-table';
 import {apiCall} from '../services/apiCall';
 import moment from 'moment';
+import { makeStyles } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
 
+const useStyles = makeStyles((theme) => ({
+    container: {
+      paddingTop: theme.spacing(4),
+      paddingBottom: theme.spacing(4),
+    },
+    fixedHeight: {
+      height: 200,
+    },
+    paper: {
+      padding: theme.spacing(2),
+      display: 'flex',
+      overflow: 'auto',
+      flexDirection: 'column',
+    },
+    typography:{
+      marginLeft:'30px',
+      fontWeight:'600'
+      
+    }
+  }));
 export default function HistoryDeposit(props){
     const [loading , setLoading] = useState(true);
     const [data , setData] = useState([]);
@@ -49,14 +71,17 @@ export default function HistoryDeposit(props){
         setLoading(false);
     }
 
+    const classes = useStyles();
 
     const {title} = props;
     return(
         <div>
-            
+            <Typography component="h6" variant="h5"  className={classes.typography} gutterBottom>
+          BalanceSheet
+    </Typography>
             {loading?<div>Loding...</div>:
             <MaterialTable
-             title={title}
+            
              data={data}
              columns={column}
              options={{

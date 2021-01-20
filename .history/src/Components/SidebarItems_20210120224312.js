@@ -120,7 +120,7 @@ export const SidebarItems = [
     icon:<BarChartIcon/>
   },
   {
-    name: "Player History"
+    name: "Player Histoy"
   },
   {
     route:"/historyDeposit",
@@ -131,21 +131,21 @@ export const SidebarItems = [
   },
   {
     route:"/historyRake",
-    name: "Rake",
+    name: "RAKE",
     icon:<AssignmentIcon/>,
     component:RakeHistory,
     layout:"/admin"
   },
   {
     route:"/historyRefund",
-    name: "Refund",
+    name: "REFUND",
     icon:<AssignmentIcon/>,
     component:RefundHistory,
     layout:"/admin"
   },
   {
     route:"/historyWithdraw",
-    name: "Withdrawl",
+    name: "WITHDRAWL",
     icon:<AssignmentIcon/>,
     component:WithDrawlHistory,
     layout:"/admin"

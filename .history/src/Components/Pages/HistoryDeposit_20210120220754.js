@@ -53,7 +53,6 @@ export default function HistoryDeposit(props){
     const {title} = props;
     return(
         <div>
-            
             {loading?<div>Loding...</div>:
             <MaterialTable
              title={title}

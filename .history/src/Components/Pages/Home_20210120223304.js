@@ -164,8 +164,17 @@ const switchRoutes = (
 function Dashboard(props) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
-  
- 
+  const [openProfile, setOpenProfile] = React.useState(null);
+  const handleClickProfile = event => {
+    if (openProfile && openProfile.contains(event.target)) {
+      setOpenProfile(null);
+    } else {
+      setOpenProfile(event.currentTarget);
+    }
+  };
+  const handleCloseProfile = () => {
+    setOpenProfile(null);
+  };
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -217,7 +226,31 @@ function Dashboard(props) {
             }}
             open={open}
           >
-            <Box bgcolor="#233044">
+   import React from 'react';
+import PropTypes from 'prop-types';
+import Typography from '@material-ui/core/Typography';
+import "typeface-nunito";
+import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+const theme = createMuiTheme({
+  typography: {
+    fontFamily: [
+      'nunito',
+      'serif',
+    ].join(','),
+},});
+export default function Home(props) {
+  return (
+   <ThemeProvider theme={theme}>
+      <Typography component="h4" variant="h4"  gutterBottom>
+     Welcome To Ludo Admin Dashboard 
+    </Typography>
+   </ThemeProvider>
+  );
+}
+
+Home.propTypes = {
+  children: PropTypes.node,
+};         <Box bgcolor="#233044">
               <div className={classes.toolbarIcon}>
                 <IconButton onClick={handleDrawerClose}>
                   <ChevronLeftIcon style={{ color: '#eeeeee' }} />

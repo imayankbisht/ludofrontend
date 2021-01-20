@@ -116,36 +116,36 @@ export const SidebarItems = [
     layout: "/admin"
   },
   { 
-    name: "Reports",
+    name: "Repots",
     icon:<BarChartIcon/>
   },
   {
-    name: "Player History"
+    name: "PLAYER HISTORY"
   },
   {
     route:"/historyDeposit",
-    name: "Deposit",
+    name: "DEPOSIT",
     icon:<AssignmentIcon/>,
     component: HistoryDeposit,
     layout:"/admin"
   },
   {
     route:"/historyRake",
-    name: "Rake",
+    name: "RAKE",
     icon:<AssignmentIcon/>,
     component:RakeHistory,
     layout:"/admin"
   },
   {
     route:"/historyRefund",
-    name: "Refund",
+    name: "REFUND",
     icon:<AssignmentIcon/>,
     component:RefundHistory,
     layout:"/admin"
   },
   {
     route:"/historyWithdraw",
-    name: "Withdrawl",
+    name: "WITHDRAWL",
     icon:<AssignmentIcon/>,
     component:WithDrawlHistory,
     layout:"/admin"
