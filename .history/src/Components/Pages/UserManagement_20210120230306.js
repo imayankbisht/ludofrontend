@@ -35,9 +35,6 @@ export default function UserManagement(props){
         <ThemeProvider theme={theme}>
           
         <div className="conatiner">
-        <Typography component="h6" variant="h5"  className={classes.typography} gutterBottom>
-         Room Management
-    </Typography>
         <UserControl/>
         <UserTable/>
         </div>

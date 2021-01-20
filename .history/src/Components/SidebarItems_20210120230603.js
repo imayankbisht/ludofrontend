@@ -145,7 +145,7 @@ export const SidebarItems = [
   },
   {
     route:"/historyWithdraw",
-    name: "Withdrawal",
+    name: "ithdrawal",
     icon:<AssignmentIcon/>,
     component:WithDrawlHistory,
     layout:"/admin"
