@@ -37,7 +37,7 @@ export default function UserManagement(props){
         <div className="conatiner">
         <Typography component="h6" variant="h5"  className={classes.typography} gutterBottom>
          Room Management
-    </Typography>
+       </Typography>
         <UserControl/>
         <UserTable/>
         </div>

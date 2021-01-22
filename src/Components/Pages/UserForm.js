@@ -1,5 +1,6 @@
-import React ,{useState , useEffect} from 'react';
+import React ,{useState} from 'react';
 import {apiCall} from '../services/apiCall';
+import Notification from '../Notification';
 import {Container, Typography ,Grid ,TextField , makeStyles ,Button} from '@material-ui/core';
 import "typeface-nunito";
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
@@ -43,6 +44,8 @@ export default function UserForm(props){
     const [betAmount , setBetamount]=useState("");
     const [rakePercent , setRakepercent]=useState("");
     const [rakeCapAmount , setRakeCapAmount]=useState("");
+    //code for notification
+    const [notify , setNotify] = useState({isOpen:false , message:"" , type:""})
     const classes = useStyles();
 
     const handleSubmit = (e) =>{
@@ -56,8 +59,17 @@ export default function UserForm(props){
        setRakeCapAmount("");
        setBetamount("");
        setRakepercent("");
+       setNotify({
+        isOpen:true,
+        message:'Created Successfully!',
+        type:'success'
+      }) 
+       setTimeout(function(){
+        window.history.go(-1);
+       }.bind(this),1000);
     }
     return(
+      <>
       <ThemeProvider theme={theme}>
             <Container  maxWidth="sm" className={classes.paper}>
             <Typography component="div" style={{ backgroundColor: '#FFFFFF', height: '80vh' ,margin:'30px' }}>
@@ -109,5 +121,10 @@ export default function UserForm(props){
             </Typography>
             </Container>
             </ThemeProvider>
+            <Notification
+               notify={notify}
+               setNotify={setNotify}
+            />
+            </>
     )
 }

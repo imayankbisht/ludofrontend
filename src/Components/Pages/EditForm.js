@@ -3,6 +3,7 @@ import {apiCall} from '../services/apiCall';
 import {Container, Typography ,Grid ,TextField , makeStyles ,Button} from '@material-ui/core';
 import "typeface-nunito";
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import Notification from '../Notification';
 const theme = createMuiTheme({
  
   typography: {
@@ -43,26 +44,37 @@ const useStyles = makeStyles((theme)=>({
     const [bet , SetBet]=useState("");
     const [rakePercent , SetrakePercent]=useState("");
     const [rakeCap , SetrakeCap]=useState("");
+    const [notify , setNotify] = useState({isOpen:false , message:"" , type:""})
 
-    useEffect(async()=>{
-       const result = await apiCall('get',`https://ylrwt.sse.codesandbox.io/room/edit/${props.match.params.id}`);
-       SetBet(result.loadRoom[0].bet);
-       SetrakeCap(result.loadRoom[0].rakeCap);
-       SetrakePercent(result.loadRoom[0].rakePercent);
-    },[]);
+
+    useEffect(()=>{
+        apiCall('get',`https://ylrwt.sse.codesandbox.io/room/edit/${props.match.params.id}`)
+        .then(result=>{
+          SetBet(result.loadRoom[0].bet);
+          SetrakeCap(result.loadRoom[0].rakeCap);
+          SetrakePercent(result.loadRoom[0].rakePercent);
+        })
+    },[props.match.params.id]);
 
     const handleSubmit = (e) =>{
        e.preventDefault();
         const data ={bet,rakeCap ,rakePercent};
-        console.log(data);
         apiCall('put',`https://ylrwt.sse.codesandbox.io/room/edit/${props.match.params.id}`,data);
+        setNotify({
+          isOpen:true,
+          message:'Edited Successfully!',
+          type:'success'
+        });
+         setTimeout(function(){
+          props.history.go(-1)
+         }.bind(this),1000);
     }
     return(
       <ThemeProvider theme={theme}>
             <Container maxWidth="sm" className={classes.paper}>
             <Typography component="div" style={{ backgroundColor: '#FFFFFF', height: '80vh' ,margin:'30px' }}>
             <Typography align="center" variant="h3" component="h2" gutterBottom>
-                EDIT FORM
+                EDIT ROOM
             </Typography>
             <form onSubmit={handleSubmit} className={classes.form}>
                 <Grid container spacing={3}>
@@ -105,6 +117,10 @@ const useStyles = makeStyles((theme)=>({
             </form>
             </Typography>
             </Container>
+            <Notification
+               notify={notify}
+               setNotify={setNotify}
+            />
             </ThemeProvider>
     )
 }

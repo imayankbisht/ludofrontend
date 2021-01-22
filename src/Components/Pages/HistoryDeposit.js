@@ -2,6 +2,7 @@ import React,{useState ,useEffect} from 'react';
 import MaterialTable from 'material-table';
 import {apiCall} from '../services/apiCall';
 import moment from 'moment';
+import Loader from '../Loader';
 
 export default function HistoryDeposit(props){
     const [loading , setLoading] = useState(true);
@@ -13,11 +14,11 @@ export default function HistoryDeposit(props){
     },[])
 
     function makeCol(keys){
-        let dataa =keys.filter(data => data != "_id" && data != "__v");
+        let dataa =keys.filter(data => data !== "_id" && data !== "__v");
         let bigContainer =[];
         let dataw;
         for(var i=0;i<dataa.length;i++){
-            if(dataa[i] == 'time'){
+            if(dataa[i] === 'time'){
               dataw = {
                 title:dataa[i],
                 field:dataa[i],
@@ -54,7 +55,7 @@ export default function HistoryDeposit(props){
     return(
         <div>
             
-            {loading?<div>Loding...</div>:
+            {loading?<div style={{width:'1200px'}}><Loader/></div>:
             <MaterialTable
              title={title}
              data={data}

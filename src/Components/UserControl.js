@@ -1,5 +1,4 @@
-import { Grid, Toolbar , InputBase ,Button ,makeStyles} from '@material-ui/core';
-import SearchIcon from '@material-ui/icons/Search';
+import { Grid, Toolbar ,Button ,makeStyles} from '@material-ui/core';
 import {Link} from 'react-router-dom';
 import React from 'react';
 
@@ -11,10 +10,7 @@ const useStyles = makeStyles(theme =>({
            marginRight:theme.spacing(2)
         }
     },
-    borderSerach:{
-        border:'2px solid #232323',
-        borderRadius:'20px'
-    }
+    
 }))
 
 function UserControl(){
@@ -24,11 +20,7 @@ function UserControl(){
              <Toolbar style={{ background: '#FFFFFF'}}>
                  <Grid container alignItems="center">
                      <Grid item>
-                         <InputBase
-                           className={classes.borderSerach}
-                           placeholder="Room Name"
-                           startAdornment={<SearchIcon fontSize="small"/>}
-                         />
+                         
                      </Grid>
                      <Grid item sm></Grid>
                      <Grid item >

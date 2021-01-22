@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React from 'react';
 import ListItem from '@material-ui/core/ListItem';
 import {SidebarItems} from './SidebarItems';
 import {Link} from 'react-router-dom';

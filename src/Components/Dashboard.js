@@ -10,23 +10,11 @@ import List from '@material-ui/core/List';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
-import Badge from '@material-ui/core/Badge';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
 // import Link from '@material-ui/core/Link';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import NotificationsIcon from '@material-ui/icons/Notifications';
-import Deposits from './Cards/Deposits';
-import MenuItem from "@material-ui/core/MenuItem";
-import MenuList from "@material-ui/core/MenuList";
-import Hidden from "@material-ui/core/Hidden";
-import Grow from "@material-ui/core/Grow";
-import Poppers from "@material-ui/core/Popper";
-import ClickAwayListener from "@material-ui/core/ClickAwayListener";
-import Person from "@material-ui/icons/Person";
-import classNames from "classnames";
 import Button from "@material-ui/core/Button";
 import { Link, Redirect } from 'react-router-dom';
 import "typeface-nunito";
@@ -39,7 +27,6 @@ import Sidebar from './Sidebar';
 import UserForm from './Pages/UserForm';
 import EditForm from './Pages/EditForm';
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import { SidebarItems } from './SidebarItems';
 import Home from './Pages/Home';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import HistoryDeposit from './Pages/HistoryDeposit';
@@ -152,11 +139,10 @@ const switchRoutes = (
     <Route path="/admin/create" render={props => (
       <UserForm heading="Create Room" {...props} />
     )} />
-    <Route exact path="/api/edit/:id" render={props => {
-      return (
+    <Route path="/admin/edit/:id" render={props =>(
         <EditForm {...props} />
       )
-    }} />
+    } />
 
     <Redirect from="/admin" to="/admin/dashboard" />
   </Switch>
