@@ -37,7 +37,7 @@ export default function HistoryDeposit(props){
     }
      
     function timeFormat(timestamp){
-        return moment(timestamp).format("DD-MMMM-YYYY h:mm:ss");
+        return moment(timestamp).format("DD-MM-YYYY h:mm:ss");
     }
 
 
@@ -59,7 +59,7 @@ export default function HistoryDeposit(props){
             <MaterialTable
              title={title}
              data={data}
-             columns={column}
+            
              options={{
                  filtering:true,
                  exportButton:true

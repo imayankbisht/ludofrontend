@@ -16,14 +16,14 @@ const useStyles = makeStyles({
   },
 });
 
-export default function Deposits(props) {
-  const {totalDeposit} = props;
+export default function Rake(props) {
+  const {totalRake}=props;
   const classes = useStyles();
   return (
     <React.Fragment>
-      <Grid container>
-            <Grid item xs={12} md={4} lg={12}>
-            <Title >Total Deposit Chips</Title>
+     <Grid container>
+            <Grid item xs={12} md={4} lg={9}>
+            <Title >Total Rake Deducted <span></span></Title>
 
             </Grid>
             {/* <Grid item xs={12} md={4} lg={3}>
@@ -31,7 +31,7 @@ export default function Deposits(props) {
             </Grid> */}
         </Grid>
       <Typography style={{marginTop:'30px'}} component="p" variant="h4">
-        ${totalDeposit}
+        ${totalRake}
       </Typography>
       {/* <Typography color="textSecondary" className={classes.depositContext}>
       on 17 jan, 2020

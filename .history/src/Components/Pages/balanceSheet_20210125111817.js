@@ -60,7 +60,7 @@ export default function BalanceSheet(props) {
       <Container maxWidth="lg" className={classes.container}>
        
         <Grid container spacing={3}>
-        <Grid item xs={12} md={4} lg={12}>
+        <Grid item xs={12} md={4} lg={3}>
             <Paper className={fixedHeightPaper}>
               <Netbalance />
             </Paper>

@@ -16,31 +16,33 @@ const useStyles = makeStyles({
   },
 });
 
-export default function Deposits(props) {
-  const {totalDeposit} = props;
+export default function Refund(props) {
+  const {totalRefund} = props;
   const classes = useStyles();
   return (
     <React.Fragment>
-      <Grid container>
+        
+     <Grid container>
             <Grid item xs={12} md={4} lg={12}>
-            <Title >Total Deposit Chips</Title>
+            <Title >Total Refund <span></span></Title>
 
             </Grid>
             {/* <Grid item xs={12} md={4} lg={3}>
-            <Chip label="today" style={{backgroundColor:'#4782da'}}/>
+            <Chip label="today"  style={{backgroundColor:'#4782da'}} />
             </Grid> */}
         </Grid>
-      <Typography style={{marginTop:'30px'}} component="p" variant="h4">
-        ${totalDeposit}
+      <Typography style={{marginTop:'60px'}} component="p" variant="h4">
+        ${totalRefund}
       </Typography>
       {/* <Typography color="textSecondary" className={classes.depositContext}>
-      on 17 jan, 2020
+        on 17 jan, 2020
       </Typography>
       <div style={{marginTop:'30px'}}>
         <Link color="textSecondary" href="#" onClick={preventDefault}>
-        <span style={{color:"#4caf50"}}> +14%</span>  View balance
+        <span style={{color:"#f44336"}}> +11%</span>  View balance
         </Link>
       </div> */}
+     
     </React.Fragment>
   );
 }

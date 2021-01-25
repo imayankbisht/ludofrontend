@@ -4,13 +4,13 @@ import {apiCall} from '../services/apiCall';
 import moment from 'moment';
 import Loader from '../Loader';
 
-export default function HistoryDeposit(props){
+export default function RefundHistory(props){
     const [loading , setLoading] = useState(true);
     const [data , setData] = useState([]);
     const [column , setColumn] = useState([]);
 
     useEffect(()=>{
-      depositHistory();
+      refundHistory();
     },[])
 
     function makeCol(keys){
@@ -21,7 +21,7 @@ export default function HistoryDeposit(props){
             if(dataa[i] === 'time'){
               dataw = {
                 title:dataa[i],
-                field:dataa[i],
+                
                 render:rowData =><span>{timeFormat(rowData.time)}</span>
              }
             }else{
@@ -37,12 +37,12 @@ export default function HistoryDeposit(props){
     }
      
     function timeFormat(timestamp){
-        return moment(timestamp).format("DD-MMMM-YYYY h:mm:ss");
+        return moment(timestamp).format("DD-MM-YYYY h:mm:ss");
     }
 
 
-    async function depositHistory(){
-        const result = await apiCall('get','https://ylrwt.sse.codesandbox.io/transaction/depositHistory'); 
+    async function refundHistory(){
+        const result = await apiCall('get','https://ylrwt.sse.codesandbox.io/transaction/refundHistory'); 
         setData(result);
         const keys = Object.keys(result[0]);
         const column1 =await makeCol(keys);
@@ -54,7 +54,6 @@ export default function HistoryDeposit(props){
     const {title} = props;
     return(
         <div>
-            
             {loading?<div style={{width:'1200px'}}><Loader/></div>:
             <MaterialTable
              title={title}
