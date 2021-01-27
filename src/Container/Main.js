@@ -6,6 +6,7 @@ import Sidebar from '../Components/Sidebar';
 import Login from '../Components/login';
 import Routes from '../routes';
 export default function Main(props){
+    
     return(
         <div>
             {/* <Switch>
@@ -22,13 +23,12 @@ export default function Main(props){
            {/* <Switch>
                
             <Route exact path="/login" render={props =><Login {...props} />} />
-          <Route path="/Dashboard" render={props =><Dashboard {...props} />} />
+            <Route path="/Dashboard" render={props =><Dashboard {...props} />} />
       
             <Redirect from="/" to="/login" /> 
            </Switch>
           */}
           <Dashboard/>
-       
         </div>
     )
 }

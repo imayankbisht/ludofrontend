@@ -33,14 +33,12 @@ const useStyles = makeStyles({
   },
   boxtable:{
     width:'100%'
-  }
-  
-   
+  } 
   });
 
 export default function UserTable(){
     const [loading ,setLoading] = useState(true);
-    const [data , setDtata]= useState(null);
+    const [data , setDtata]= useState([]);
     const [notify , setNotify] = useState({isOpen:false , message:"" , type:""});
     const [confirmDialog , setConfirmDialog]=useState({isOpen:false , title:'',subTitle:''});
     const [searchTerm , setSerachTerm]=useState('');
@@ -68,23 +66,14 @@ export default function UserTable(){
           type:'error'
         })
     }
-
     useEffect(()=>{
       apiCall('get','https://ylrwt.sse.codesandbox.io/room/all')
       .then(res=>{
         setDtata(res);
+
         setLoading(false);
       });
     },[data]);
-
-
-   /*setConfirmDialog({
-                                                       isOpen:true , 
-                                                       title:"Are You want to delete it?",
-                                                      subTitle:"you can't be able to Undo it!",
-                                                      onConfirm:()=>{removeUser.bind(this , row._id)}
-                                                    }) */
-
 
   return(
     <div style={{ background: '#FFFFFF' , width:'1200px'}} className={classes.boxtable}>

@@ -1,5 +1,7 @@
-import React from 'react';
+import React,{useState , useEffect} from 'react';
+import {authUser} from './Authentication/auth';
 import './App.css';
+import Notification from './Components/Notification';
 import {
   BrowserRouter as Router,
   Switch,
@@ -12,23 +14,46 @@ import Login from './Components/login';
 // import RoomManagement from './Container/RoomManagement';
 
 
+
 function App(props) {
+   const [isAuthenticated , setIsauthenticated] = useState(false);
+   const [user , setUser] = useState({});
+   const [errors , setErrors] = useState("");
+   const [notify , setNotify] = useState({isOpen:false , message:"" , type:""})
+  
+   useEffect(()=>{
+    const token = localStorage.getItem('jwtToken');
+    if(token){
+      setIsauthenticated(true);
+    }
+    },[]);
+
+  function handleAuth(data){
+    authUser(data).then(res=>{
+      setUser(res);
+      setIsauthenticated(true);
+    })
+    .catch(e=>{
+      setNotify({
+        isOpen:true,
+        message:e.data.msg,
+        type:'error'
+      })
+    })
+  }
+
   return (
     <div className="App">
       <Router >
         <Switch>
-
-          <Route  path="/login" render={props => <Login {...props} />} />
-          <Route path="/admin" render={props => <Dashboard {...props} />} />
-          
-
-          <Redirect from="/" to="/login" />
+           { isAuthenticated ?<Dashboard user={user} setIsauthenticated={setIsauthenticated} setUser={setUser}/>:<Login errors={errors} isAuth={handleAuth}/>}
+           <Redirect from="/" to="/login" />
         </Switch>
-        
-{/* <Dashboard/> */}
-
       </Router>
-
+     <Notification
+       notify={notify}
+       setNotify={setNotify}
+     />
 
     </div>
   );

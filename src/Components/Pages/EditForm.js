@@ -50,9 +50,9 @@ const useStyles = makeStyles((theme)=>({
     useEffect(()=>{
         apiCall('get',`https://ylrwt.sse.codesandbox.io/room/edit/${props.match.params.id}`)
         .then(result=>{
-          SetBet(result.loadRoom[0].bet);
-          SetrakeCap(result.loadRoom[0].rakeCap);
-          SetrakePercent(result.loadRoom[0].rakePercent);
+          SetBet(result[0].bet);
+          SetrakeCap(result[0].rakeCap);
+          SetrakePercent(result[0].rakePercent);
         })
     },[props.match.params.id]);
 

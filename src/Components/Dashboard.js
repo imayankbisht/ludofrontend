@@ -148,10 +148,17 @@ const switchRoutes = (
   </Switch>
 );
 function Dashboard(props) {
+  const {setUser , setIsauthenticated} = props;
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
   
  
+ const logOut = () =>{
+   localStorage.clear();
+   setUser({});
+   setIsauthenticated(false)
+ }
+
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -178,21 +185,16 @@ function Dashboard(props) {
 
             <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
               Ludo Admin Panel
-          </Typography>
+            </Typography>
 
             {/* <IconButton style={{ color: '#9e9e9e'}} color="inherit">
             <Badge badgeContent={4}  color="primary">
               <NotificationsIcon  />
             </Badge>
           </IconButton> */}
-            <Link to='/login'>
-              <Button>
-
+              <Button onClick={logOut}>
                 <ExitToAppIcon style={{ color: '#9e9e9e' }} className={classes.icons} />
-
               </Button>
-            </Link>
-
           </Toolbar>
         </AppBar>
         <Box bgcolor="#233044">
@@ -218,13 +220,8 @@ function Dashboard(props) {
           <div className={classes.appBarSpacer} />
           <Container maxWidth="lg" className={classes.container}>
             <Grid container spacing={3}>
-
-
               {switchRoutes}
-
             </Grid>
-
-
           </Container>
         </main>
       </div>
