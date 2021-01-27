@@ -44,10 +44,10 @@ export const SidebarItems = [
     component: UserManagement,
     layout: "/admin"
   },
-  { 
-    name: "Reports",
-    icon:<BarChartIcon/>
-  },
+  // { 
+  //   name: "Reports",
+  //   icon:<BarChartIcon/>
+  // },
   {
     name: "Player History"
   },

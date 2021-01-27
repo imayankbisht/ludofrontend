@@ -37,7 +37,7 @@ export default function HistoryDeposit(props){
     }
      
     function timeFormat(timestamp){
-        return moment(timestamp).format("DD-MMMM-YYYY h:mm:ss");
+        return moment(timestamp).format("DD-MM-YYYY h:mm:ss");
     }
 
 
@@ -45,7 +45,7 @@ export default function HistoryDeposit(props){
         const result = await apiCall('get','https://ylrwt.sse.codesandbox.io/transaction/depositHistory'); 
         setData(result);
         const keys = Object.keys(result[0]);
-        const column1 =await makeCol(keys);
+        // const column1 =await makeCol(keys);
         setColumn(column1);
         setLoading(false);
     }

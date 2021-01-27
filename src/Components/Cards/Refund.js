@@ -23,25 +23,25 @@ export default function Refund(props) {
     <React.Fragment>
         
      <Grid container>
-            <Grid item xs={12} md={4} lg={9}>
-            <Title >Total Refund  <span></span></Title>
+            <Grid item xs={12} md={4} lg={12}>
+            <Title >Total Refund <span></span></Title>
 
             </Grid>
-            <Grid item xs={12} md={4} lg={3}>
+            {/* <Grid item xs={12} md={4} lg={3}>
             <Chip label="today"  style={{backgroundColor:'#4782da'}} />
-            </Grid>
+            </Grid> */}
         </Grid>
-      <Typography component="p" variant="h4">
+      <Typography style={{marginTop:'30px'}} component="p" variant="h4">
         ${totalRefund}
       </Typography>
-      <Typography color="textSecondary" className={classes.depositContext}>
+      {/* <Typography color="textSecondary" className={classes.depositContext}>
         on 17 jan, 2020
       </Typography>
       <div style={{marginTop:'30px'}}>
         <Link color="textSecondary" href="#" onClick={preventDefault}>
         <span style={{color:"#f44336"}}> +11%</span>  View balance
         </Link>
-      </div>
+      </div> */}
      
     </React.Fragment>
   );
