@@ -115,7 +115,7 @@ export default function BalanceSheet(props) {
 
 //==
 
-import React,{useState ,useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import Deposits from '../Cards/Deposits';
 import Cashout from '../Cards/Cashout';
 import Netbalance from '../Cards/Netbalance';
@@ -125,7 +125,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Container from '@material-ui/core/Container';
-import {apiCall} from '../services/apiCall';
+import { apiCall } from '../services/apiCall';
 import clsx from 'clsx';
 import Typography from '@material-ui/core/Typography';
 
@@ -143,55 +143,55 @@ const useStyles = makeStyles((theme) => ({
     overflow: 'auto',
     flexDirection: 'column',
   },
-  typography:{
-    marginLeft:'30px',
-    fontWeight:'600'
-    
+  typography: {
+    marginLeft: '30px',
+    fontWeight: '600'
+
   }
 }));
 export default function BalanceSheet(props) {
-  const [totalDeposit,setTotalDeposit ] = useState(0);
-  const [totalRake ,setTotalRake] = useState(0);
-  const [totalWithDrawl ,setTotalWithDrawl] = useState(0);
-  const [totalRefund ,setTotalRefund] = useState(0);
+  const [totalDeposit, setTotalDeposit] = useState(0);
+  const [totalRake, setTotalRake] = useState(0);
+  const [totalWithDrawl, setTotalWithDrawl] = useState(0);
+  const [totalRefund, setTotalRefund] = useState(0);
 
-  useEffect(()=>{
-    async function getBalancesheet(){
-     const result = await apiCall('get','https://ylrwt.sse.codesandbox.io/transaction/balanceSheet');
-     console.log(result)
-     let totalDepo=0;
-     let totalRakes=0;
-     let totalWithDraw=0;
-     let totalRefunds=0;
+  useEffect(() => {
+    async function getBalancesheet() {
+      const result = await apiCall('get', 'https://ylrwt.sse.codesandbox.io/transaction/balanceSheet');
+      console.log(result)
+      let totalDepo = 0;
+      let totalRakes = 0;
+      let totalWithDraw = 0;
+      let totalRefunds = 0;
 
-     result.map(data =>{
-        totalDepo += data.totalDepositChips;
-        totalRakes += data.totalRakeDeducted;
-        totalWithDraw += data.totalWithdrawlChips;
-        totalRefunds += data.totalRefundChips
-     });
+      result.map(data => {
+        totalDepo = data.totalDepositChips;
+        totalRakes = data.totalRakeDeducted;
+        totalWithDraw = data.totalWithdrawlChips;
+        totalRefunds = data.totalRefundChips
+      });
 
-     //console.log(totalDepo , totalRakes ,totalWithDraw ,totalRefunds)
-     setTotalDeposit(totalDepo);
-     setTotalRake(totalRakes);
-     setTotalWithDrawl(totalWithDraw);
-     setTotalRefund(totalRefunds);
+      //console.log(totalDepo , totalRakes ,totalWithDraw ,totalRefunds)
+      setTotalDeposit(totalDepo);
+      setTotalRake(totalRakes);
+      setTotalWithDrawl(totalWithDraw);
+      setTotalRefund(totalRefunds);
     }
     getBalancesheet();
-},[]);
+  }, []);
 
   const classes = useStyles();
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
   return (
     <div>
-       <Typography component="h6" variant="h5"  className={classes.typography} gutterBottom>
-          BalanceSheet
+      <Typography component="h6" variant="h5" className={classes.typography} gutterBottom>
+        BalanceSheet
     </Typography>
       <Container maxWidth="lg" className={classes.container}>
-       
+
         <Grid container spacing={3}>
-        <Grid item xs={12} md={4} lg={12}>
+          <Grid item xs={12} md={4} lg={12}>
             <Paper className={fixedHeightPaper}>
               <Netbalance />
             </Paper>
@@ -219,7 +219,7 @@ export default function BalanceSheet(props) {
               <Refund totalRefund={totalRefund} />
             </Paper>
           </Grid>
-          
+
 
 
         </Grid>
